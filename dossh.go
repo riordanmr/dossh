@@ -48,14 +48,14 @@ func main() {
 	defer session.Close()
 
 	// Compute the command to be executed by the SSH host.
-	sql_filenm := "holdsdb-" + time.Now().Format("2006-01-02") + ".sql"
+	sql_filenm := "holdsdbkoha-" + time.Now().Format("2006-01-02") + ".sql"
 	holdsdbpw := os.Getenv("HOLDSDBPW")
 	if len(holdsdbpw) == 0 {
 		log.Fatal("You must set the environment variable HOLDSDBPW")
 	}
-	cmd := "mysqldump --host=db5013161349.hosting-data.io --user=dbu4913091 --password=" +
-		holdsdbpw + " dbs11045614 >volunteer/" + sql_filenm +
-		" && ls -la volunteer"
+	cmd := "mysqldump --host=db5015942324.hosting-data.io --user=dbu5306891 --password=" +
+		holdsdbpw + " dbs12993292 >volunteer/koha/" + sql_filenm +
+		" && ls -la volunteer/koha/"
 	fmt.Println(cmd)
 
 	// Send the command to the SSH host for execution.
